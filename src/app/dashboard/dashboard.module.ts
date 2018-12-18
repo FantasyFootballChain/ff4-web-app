@@ -4,11 +4,13 @@ import { RouterModule } from '@angular/router';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { HomeComponent } from './home';
 import { LeagueComponent } from './league';
 
 @NgModule({
   	declarations: [
-		DashboardComponent, 
+		DashboardComponent,
+		HomeComponent, 
 		LeagueComponent
 	],
 	imports: [
