@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from './home';
 import { LeagueComponent } from './league';
+import { SquadBuilderComponent } from './squad-builder';
 
 const routes: Routes = [
 	{	
@@ -22,6 +23,10 @@ const routes: Routes = [
 			{
 				path: 'league',
 				component: LeagueComponent
+			},
+			{
+				path: 'squad-builder/:league_id',
+				component: SquadBuilderComponent
 			}
 		]
 	}

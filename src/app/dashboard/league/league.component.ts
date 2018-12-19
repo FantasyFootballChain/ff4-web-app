@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { FootballDataService } from '../../shared';
 
@@ -12,7 +13,8 @@ export class LeagueComponent implements OnInit {
 	leagues: any = [];
 
 	constructor(
-		public footballDataService: FootballDataService
+		public footballDataService: FootballDataService,
+		public router: Router
 	) {}
 
 	ngOnInit() {
@@ -24,11 +26,10 @@ export class LeagueComponent implements OnInit {
 	}
 
 	/**
-	 * Creates a new squad
+	 * Redirect to squad builder
 	 */
-	createSquad(league) {
-		console.log('create squad');
-		console.log(league);
+	openSquadBuilder(league) {
+		this.router.navigate([`/dashboard/squad-builder/${league.id}`]);
 	}
 
 }

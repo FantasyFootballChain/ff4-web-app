@@ -1,0 +1,46 @@
+<header class="page-header">
+	<div class="container-fluid">
+		<h2 class="no-margin-bottom">Squad builder</h2>
+	</div>
+</header>
+
+<div class="container-fluid mt-3">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card p-3">
+				<div class="field p-3">
+					Field
+					- photo
+					- name
+					- price
+					- btn delete
+					- btn move to bench
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="card p-3">
+				<p-table [value]="players" [paginator]="true" [rows]="10">
+					<ng-template pTemplate="header">
+						<tr>
+							<th></th>
+							<th>Player</th>
+							<th>Position</th>
+							<th>Price</th>
+						</tr>
+					</ng-template>
+					<ng-template pTemplate="body" let-player>
+						<tr>
+							<td>
+								<button (click)="addPlayerToSquad(player)" class="btn btn-primary fa fa-plus"></button>
+							</td>
+							<td>{{ player.full_name }}</td>
+							<td>{{ player.position_name }}</td>
+							<td>{{ player.price }}</td>
+						</tr>
+					</ng-template>
+				</p-table>
+			</div>
+		</div>
+	</div>
+</div>

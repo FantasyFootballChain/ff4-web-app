@@ -20,4 +20,11 @@ export class FootballDataService {
 		return this.http.get(`${env.apiUrl}/leagues`);
 	}
 
+	/**
+	 * Returns all players by league id
+	 */
+	players(leagueId): Observable<any> {
+		return this.http.get(`${env.apiUrl}/players`, {params: {league_id: leagueId}});
+	}
+
 }
