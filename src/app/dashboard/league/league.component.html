@@ -11,4 +11,22 @@
 	</ul>
 </div>
 
-
+<div class="container-fluid">
+	<div *ngFor="let league of leagues" class="row mt-3">
+		<div class="col-lg-6 col-12">
+			<div class="row bg-white has-shadow p-3">
+				<div class="col-lg-1">
+					<!-- <span class="flag-icon flag-icon-dk flag-extended"></span> -->
+					<span class="flag-icon flag-extended" [class.flag-icon-dk]="league.country_name == 'Denmark'" [class.flag-icon-gb]="league.country_name == 'Scotland'"></span>
+				</div>
+				<div class="col-lg-6">
+					<strong>{{ league.country_name }} {{ league.name }}</strong>
+					<div><small>{{ league.season_name }}</small></div>
+				</div>
+				<div class="col-lg-5 text-right">
+					<button (click)="createSquad(league)" class="btn btn-primary">Create squad</button>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
