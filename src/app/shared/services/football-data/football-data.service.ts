@@ -9,6 +9,11 @@ import { environment as env } from '../../../../environments/environment';
 })
 export class FootballDataService {
 
+	PLAYER_POSITION_GOALKEEPER = 1;
+	PLAYER_POSITION_DEFENDER = 2;
+	PLAYER_POSITION_MIDFIELDER = 3;
+	PLAYER_POSITION_ATTACKER = 4;
+
 	constructor(
 		public http: HttpClient
 	) {}
