@@ -25,7 +25,7 @@ const routes: Routes = [
 				component: LeagueComponent
 			},
 			{
-				path: 'squad-builder/:league_id',
+				path: 'squad-builder/:season_id/:league_id',
 				component: SquadBuilderComponent
 			}
 		]

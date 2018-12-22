@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { FootballDataService } from '../../shared';
+import { FootballDataService, Web3Service } from '../../shared';
 
 @Component({
 	selector: 'app-squad-builder',
@@ -12,8 +12,12 @@ export class SquadBuilderComponent implements OnInit {
 
 	availablePlayers = [];
 	benchPlayers = [];
+	captainId: number;
 	leagueId: number;
 	mainSquadPlayers = [];
+	seasonId: number;
+	stakeInEth = 0;
+	teamPrice = 0;
 
 	emptyPlayer = {
 		id: null,
@@ -24,12 +28,14 @@ export class SquadBuilderComponent implements OnInit {
 
 	constructor(
 		public activatedRoute: ActivatedRoute,
-		public footballDataService: FootballDataService
+		public footballDataService: FootballDataService,
+		public web3Service: Web3Service
 	) {}
 
 	ngOnInit() {
 
 		this.activatedRoute.params.subscribe(params => {
+			this.seasonId = params['season_id'];
 			this.leagueId = params['league_id'];
 		});
 
@@ -54,6 +60,7 @@ export class SquadBuilderComponent implements OnInit {
 				this.benchPlayers[i].position_id = this.mainSquadPlayers[index].position_id;
 				this.benchPlayers[i].price = this.mainSquadPlayers[index].price;
 				this.removePlayerFromSquad(index);
+				this.teamPrice += this.benchPlayers[i].price;
 				break;
 			}
 		}
@@ -96,6 +103,7 @@ export class SquadBuilderComponent implements OnInit {
 				this.mainSquadPlayers[i].position_id = player.position_id;
 				this.mainSquadPlayers[i].price = player.price;
 				added = true;
+				this.teamPrice += player.price;
 				break;
 			}
 			prevIds.push(this.mainSquadPlayers[i].id);
@@ -143,6 +151,8 @@ export class SquadBuilderComponent implements OnInit {
 	 * Removes player from a bench
 	 */
 	removePlayerFromBench(index) {
+		this.teamPrice -= this.benchPlayers[index].price;
+
 		this.benchPlayers[index].id = null;
 		this.benchPlayers[index].full_name = '';
 		this.benchPlayers[index].photo_url = 'assets/images/misc/no_photo.png';
@@ -154,6 +164,8 @@ export class SquadBuilderComponent implements OnInit {
 	 * Removes player from squad
 	 */
 	removePlayerFromSquad(index) {
+		this.teamPrice -= this.mainSquadPlayers[index].price;
+
 		this.mainSquadPlayers[index].id = null;
 		this.mainSquadPlayers[index].full_name = '';
 		this.mainSquadPlayers[index].photo_url = 'assets/images/misc/no_photo.png';
@@ -169,9 +181,16 @@ export class SquadBuilderComponent implements OnInit {
 		let benchPlayerIds = [];
 		this.mainSquadPlayers.map(player => { playerIds.push(player.id) });
 		this.benchPlayers.map(player => { benchPlayerIds.push(player.id) });
+		const stakeInWei = this.web3Service.toWei(String(this.stakeInEth), "ether");
+		const roundId = 1;
 		
+		console.log(this.seasonId);
+		console.log(this.leagueId);
+		console.log(roundId);
 		console.log(playerIds);
 		console.log(benchPlayerIds);
+		console.log(this.captainId);
+		console.log(stakeInWei);
 	}
 
 }

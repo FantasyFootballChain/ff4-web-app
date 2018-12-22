@@ -14,123 +14,145 @@
 				<div *ngIf="mainSquadPlayers.length != 0" class="field p-3">
 					<!-- attackers -->
 					<div class="row mt-3">
-						<div class="col-lg-4 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[8].photo_url" alt="" class="img-fluid rounded-circle">
-							</div>
-							<div *ngIf="mainSquadPlayers[8].id">{{ mainSquadPlayers[8].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[8].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[8].id">
-								<button (click)="addPlayerToBench(8)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(8)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
-							</div>
-						</div>
-						<div class="col-lg-4 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[9].photo_url" alt="" class="img-fluid rounded-circle">
-							</div>
-							<div *ngIf="mainSquadPlayers[9].id">{{ mainSquadPlayers[9].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[9].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[9].id">
-								<button (click)="addPlayerToBench(9)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(9)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+						<div class="col-lg-4 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[8].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[8].id">{{ mainSquadPlayers[8].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[8].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[8].id">
+									<button (click)="addPlayerToBench(8)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(8)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-4 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[10].photo_url" alt="" class="img-fluid rounded-circle">
+						<div class="col-lg-4 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[9].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[9].id">{{ mainSquadPlayers[9].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[9].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[9].id">
+									<button (click)="addPlayerToBench(9)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(9)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
-							<div *ngIf="mainSquadPlayers[10].id">{{ mainSquadPlayers[10].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[10].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[10].id">
-								<button (click)="addPlayerToBench(10)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(10)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+						</div>
+						<div class="col-lg-4 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[10].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[10].id">{{ mainSquadPlayers[10].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[10].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[10].id">
+									<button (click)="addPlayerToBench(10)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(10)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
 						</div>
 					</div>
 					<!-- midfielders -->
 					<div class="row mt-3">
-						<div class="col-lg-4 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[5].photo_url" alt="" class="img-fluid rounded-circle">
-							</div>
-							<div *ngIf="mainSquadPlayers[5].id">{{ mainSquadPlayers[5].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[5].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[5].id">
-								<button (click)="addPlayerToBench(5)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(5)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
-							</div>
-						</div>
-						<div class="col-lg-4 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[6].photo_url" alt="" class="img-fluid rounded-circle">
-							</div>
-							<div *ngIf="mainSquadPlayers[6].id">{{ mainSquadPlayers[6].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[6].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[6].id">
-								<button (click)="addPlayerToBench(6)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(6)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+						<div class="col-lg-4 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[5].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[5].id">{{ mainSquadPlayers[5].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[5].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[5].id">
+									<button (click)="addPlayerToBench(5)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(5)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-4 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[7].photo_url" alt="" class="img-fluid rounded-circle">
+						<div class="col-lg-4 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[6].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[6].id">{{ mainSquadPlayers[6].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[6].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[6].id">
+									<button (click)="addPlayerToBench(6)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(6)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
-							<div *ngIf="mainSquadPlayers[7].id">{{ mainSquadPlayers[7].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[7].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[7].id">
-								<button (click)="addPlayerToBench(7)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(7)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+						</div>
+						<div class="col-lg-4 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[7].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[7].id">{{ mainSquadPlayers[7].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[7].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[7].id">
+									<button (click)="addPlayerToBench(7)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(7)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
 						</div>
 					</div>
 					<!-- defenders -->
 					<div class="row mt-3">
-						<div class="col-lg-3 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[1].photo_url" alt="" class="img-fluid rounded-circle">
-							</div>
-							<div *ngIf="mainSquadPlayers[1].id">{{ mainSquadPlayers[1].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[1].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[1].id">
-								<button (click)="addPlayerToBench(1)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(1)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
-							</div>
-						</div>
-						<div class="col-lg-3 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[2].photo_url" alt="" class="img-fluid rounded-circle">
-							</div>
-							<div *ngIf="mainSquadPlayers[2].id">{{ mainSquadPlayers[2].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[2].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[2].id">
-								<button (click)="addPlayerToBench(2)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(2)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+						<div class="col-lg-3 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[1].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[1].id">{{ mainSquadPlayers[1].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[1].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[1].id">
+									<button (click)="addPlayerToBench(1)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(1)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-3 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[3].photo_url" alt="" class="img-fluid rounded-circle">
-							</div>
-							<div *ngIf="mainSquadPlayers[3].id">{{ mainSquadPlayers[3].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[3].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[3].id">
-								<button (click)="addPlayerToBench(3)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(3)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+						<div class="col-lg-3 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[2].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[2].id">{{ mainSquadPlayers[2].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[2].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[2].id">
+									<button (click)="addPlayerToBench(2)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(2)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-3 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[4].photo_url" alt="" class="img-fluid rounded-circle">
+						<div class="col-lg-3 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[3].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[3].id">{{ mainSquadPlayers[3].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[3].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[3].id">
+									<button (click)="addPlayerToBench(3)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(3)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
-							<div *ngIf="mainSquadPlayers[4].id">{{ mainSquadPlayers[4].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[4].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[4].id">
-								<button (click)="addPlayerToBench(4)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(4)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+						</div>
+						<div class="col-lg-3 col-12 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[4].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[4].id">{{ mainSquadPlayers[4].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[4].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[4].id">
+									<button (click)="addPlayerToBench(4)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(4)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
 						</div>
 					</div>
 					<!-- goalkeeper -->
 					<div class="row mt-3">
-						<div class="col-lg-12 col-12 text-center">
-							<div>
-								<img [src]="mainSquadPlayers[0].photo_url" alt="" class="img-fluid rounded-circle">
-							</div>
-							<div *ngIf="mainSquadPlayers[0].id">{{ mainSquadPlayers[0].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[0].price }}</span></div>
-							<div *ngIf="mainSquadPlayers[0].id">
-								<button (click)="addPlayerToBench(0)" class="btn btn-warning fa fa-arrow-circle-down"></button>
-								<button (click)="removePlayerFromSquad(0)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+						<div class="col-lg-4 offset-lg-4 text-center d-flex flex-column align-items-center">
+							<div class="player-container">
+								<div>
+									<img [src]="mainSquadPlayers[0].photo_url" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div *ngIf="mainSquadPlayers[0].id">{{ mainSquadPlayers[0].full_name }} <span class="badge badge-rounded bg-blue">{{ mainSquadPlayers[0].price }}</span></div>
+								<div *ngIf="mainSquadPlayers[0].id">
+									<button (click)="addPlayerToBench(0)" class="btn btn-warning fa fa-arrow-circle-down"></button>
+									<button (click)="removePlayerFromSquad(0)" class="btn btn-danger fa fa-minus-circle ml-2"></button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -139,6 +161,7 @@
 		</div>
 		<div class="col-lg-6">
 			<div class="card p-3">
+				<!-- search players table -->
 				<p-table [value]="availablePlayers" [paginator]="true" [rows]="10">
 					<ng-template pTemplate="header">
 						<tr>
@@ -159,6 +182,27 @@
 						</tr>
 					</ng-template>
 				</p-table>
+				<!-- additional squad info -->
+				<div class="pt-3">
+					<p>Team price: {{ teamPrice }}</p>
+					<p>Total balance: {{ 100 - teamPrice }} </p>
+					<div class="form-group row">
+						<label class="col-sm-3">Captain</label>
+						<div class="col-sm-9">
+							<select [(ngModel)]="captainId" name="account" class="form-control mb-3">
+								<option *ngFor="let player of mainSquadPlayers" [value]="player.id">{{ player.full_name }}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-3">Stake in ETH</label>
+						<div class="col-sm-9">
+							<input [(ngModel)]="stakeInEth" type="number" class="form-control form-control-success">
+						</div>
+					</div>
+					<button (click)="saveSquad()" class="btn btn-primary">Save</button>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -216,11 +260,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="card p-3">
-					<button (click)="saveSquad()" class="btn btn-primary">Save</button>
 				</div>
 			</div>
 		</div>

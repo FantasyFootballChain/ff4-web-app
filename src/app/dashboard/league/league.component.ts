@@ -29,7 +29,7 @@ export class LeagueComponent implements OnInit {
 	 * Redirect to squad builder
 	 */
 	openSquadBuilder(league) {
-		this.router.navigate([`/dashboard/squad-builder/${league.id}`]);
+		this.router.navigate([`/dashboard/squad-builder/${league.season_id}/${league.id}`]);
 	}
 
 }
