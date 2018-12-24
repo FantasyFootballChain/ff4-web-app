@@ -4,7 +4,14 @@
 
 export const environment = {
 	production: false,
-	apiUrl: 'http://localhost:3000'
+	apiUrl: 'http://localhost:3000',
+	fantasyFoootballChainAddress: {
+		"main": "",
+		"ropsten": "",
+		"kovan": "",
+		"rinkeby": "",
+		"development": "0xb48b714c0f746f6618ef389fba1db9273f620813"
+	}
 };
 
 /*

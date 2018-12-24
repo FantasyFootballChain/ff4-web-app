@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { FootballDataService, Web3Service } from '../../shared';
+import { BlockchainService } from '../../shared/services'
 
 @Component({
 	selector: 'app-squad-builder',
@@ -19,15 +20,9 @@ export class SquadBuilderComponent implements OnInit {
 	stakeInEth = 0;
 	teamPrice = 0;
 
-	emptyPlayer = {
-		id: null,
-		full_name: '',
-		photo_url: 'assets/images/misc/no_photo.png',
-		price: null
-	};
-
 	constructor(
 		public activatedRoute: ActivatedRoute,
+		public blockchainService: BlockchainService,
 		public footballDataService: FootballDataService,
 		public web3Service: Web3Service
 	) {}
@@ -184,13 +179,7 @@ export class SquadBuilderComponent implements OnInit {
 		const stakeInWei = this.web3Service.toWei(String(this.stakeInEth), "ether");
 		const roundId = 1;
 		
-		console.log(this.seasonId);
-		console.log(this.leagueId);
-		console.log(roundId);
-		console.log(playerIds);
-		console.log(benchPlayerIds);
-		console.log(this.captainId);
-		console.log(stakeInWei);
+		this.blockchainService.createAndFundSquad(this.seasonId, this.leagueId, roundId, playerIds, benchPlayerIds, this.captainId, stakeInWei).subscribe();
 	}
 
 }
