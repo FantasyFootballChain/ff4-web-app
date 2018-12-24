@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
+import { FinanceComponent } from './finance';
 import { HomeComponent } from './home';
 import { LeagueComponent } from './league';
 import { SquadBuilderComponent } from './squad-builder';
@@ -15,6 +16,10 @@ const routes: Routes = [
 				path: '',
 				redirectTo: 'home',
 				pathMatch: 'full'
+			},
+			{
+				path: 'finance',
+				component: FinanceComponent
 			},
 			{
 				path: 'home',

@@ -5,14 +5,16 @@ import { RouterModule } from '@angular/router';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { FinanceComponent } from './finance';
 import { HomeComponent } from './home';
 import { LeagueComponent } from './league';
-import { PrimengCustomModule } from '../shared';
+import { PrimengCustomModule, SharedModule } from '../shared';
 import { SquadBuilderComponent } from './squad-builder';
 
 @NgModule({
   	declarations: [
 		DashboardComponent,
+		FinanceComponent,
 		HomeComponent, 
 		LeagueComponent, 
 		SquadBuilderComponent
@@ -22,7 +24,8 @@ import { SquadBuilderComponent } from './squad-builder';
 		DashboardRoutingModule,
 		FormsModule,
 		PrimengCustomModule,
-		RouterModule
+		RouterModule,
+		SharedModule
 	]
 })
 export class DashboardModule { }
