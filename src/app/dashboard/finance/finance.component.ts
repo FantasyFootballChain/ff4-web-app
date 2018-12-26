@@ -46,7 +46,7 @@ export class FinanceComponent implements OnInit {
 	 * Withdraws win sum to user
 	 */
 	withdraw(squad) {
-		console.log(squad);
+		this.blockchainService.withdrawWinSum(squad.index).subscribe();
 	}
 
 }

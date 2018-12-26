@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BlockchainService, Web3Service } from '../shared/services';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +10,8 @@ import { BlockchainService, Web3Service } from '../shared/services';
 })
 export class DashboardComponent implements OnInit {
 
+	isOracle = false;
+
 	constructor(
 		public blockchainService: BlockchainService,
 		public web3Service: Web3Service
@@ -16,13 +19,28 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit() {
 		this.checkConnection();
+		this.checkOracle();
 	}
 
+	/**
+	 * Checks whether user is logged in into metamask
+	 */
 	checkConnection() {
 		this.web3Service.getConnectionError().subscribe(error => {
 			if(error == this.web3Service.CONNECTION_NO_PROVIDER) alert("Please install Metamask");
 			if(error == this.web3Service.CONNECTION_NOT_LOGGED_IN) alert("Please login into your Metamask account");
 		})
+	}
+
+	/**
+	 * Checks whether current account is oracle
+	 */
+	checkOracle() {
+		this.blockchainService.isOracle().subscribe(
+			isOracle => {
+				this.isOracle = isOracle;
+			}
+		);
 	}
 
 }

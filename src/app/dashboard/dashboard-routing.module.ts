@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { FinanceComponent } from './finance';
 import { HomeComponent } from './home';
 import { LeagueComponent } from './league';
+import { OracleComponent } from './oracle';
 import { SquadBuilderComponent } from './squad-builder';
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
 			{
 				path: 'league',
 				component: LeagueComponent
+			},
+			{
+				path: 'oracle',
+				component: OracleComponent
 			},
 			{
 				path: 'squad-builder/:season_id/:league_id',

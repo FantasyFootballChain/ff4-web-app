@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
-import { forkJoin, of } from 'rxjs';
+import { forkJoin, from, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { environment as env } from '../../../../environments/environment';
@@ -44,6 +44,57 @@ export class BlockchainService {
 		);
 	}
 
+	//====================
+	// Contract properties
+	//====================
+
+	/**
+	 * Returns oracle address
+	 */
+	oracleAddress(): any {
+		return this.fantasyFootballChainContract.methods.oracleAddress().call();
+	}
+
+	//===============
+	// Oracle methods
+	//===============
+
+	/**
+	 * Marks squad as lose
+	 * @param squadIndex 
+	 */
+	autoMarkLose(squadIndex): any {
+		return this.web3Service.getAccounts().pipe(
+			switchMap(accounts => {
+				return this.fantasyFootballChainContract.methods.autoMarkLose(squadIndex).send({from: accounts[0]});
+			})
+		);
+	}
+
+	/**
+	 * Marks squad as valid
+	 * @param squadIndex 
+	 */
+	autoMarkValid(squadIndex): any {
+		return this.web3Service.getAccounts().pipe(
+			switchMap(accounts => {
+				return this.fantasyFootballChainContract.methods.autoMarkValid(squadIndex).send({from: accounts[0]});
+			})
+		);
+	}
+
+	/**
+	 * Marks squad as win
+	 * @param squadIndex 
+	 */
+	autoMarkWin(squadIndex): any {
+		return this.web3Service.getAccounts().pipe(
+			switchMap(accounts => {
+				return this.fantasyFootballChainContract.methods.autoMarkWin(squadIndex).send({from: accounts[0]});
+			})
+		);
+	}
+
 	//=============
 	// User methods
 	//=============
@@ -75,6 +126,18 @@ export class BlockchainService {
 		return this.web3Service.getAccounts().pipe(
 			switchMap(accounts => {
 				return this.fantasyFootballChainContract.methods.getUserSquadIndexes(accounts[0], seasonId, leagueId).call({from: accounts[0]});
+			})
+		);
+	}
+
+	/**
+	 * Withdraws win sum
+	 * @param squadIndex 
+	 */
+	withdrawWinSum(squadIndex): any {
+		return this.web3Service.getAccounts().pipe(
+			switchMap(accounts => {
+				return this.fantasyFootballChainContract.methods.withdrawWinSum(squadIndex).send({from: accounts[0]});
 			})
 		);
 	}
@@ -113,6 +176,22 @@ export class BlockchainService {
 			};
 			return of(squadInfo);
 		}));
+	}
+
+	/**
+	 * Checks whether current account is oracle
+	 */
+	isOracle(): any {
+		let currentAccount = null;
+		return this.web3Service.getAccounts().pipe(
+			switchMap(accounts => {
+				currentAccount = accounts[0];
+				return this.oracleAddress();
+			}),
+			switchMap(oracleAddress => {
+				return oracleAddress == currentAccount ? of(true) : of(false);
+			})
+		);
 	}
 
 }

@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard.component';
 import { FinanceComponent } from './finance';
 import { HomeComponent } from './home';
 import { LeagueComponent } from './league';
+import { OracleComponent } from './oracle';
 import { PrimengCustomModule, SharedModule } from '../shared';
 import { SquadBuilderComponent } from './squad-builder';
 
@@ -16,7 +17,8 @@ import { SquadBuilderComponent } from './squad-builder';
 		DashboardComponent,
 		FinanceComponent,
 		HomeComponent, 
-		LeagueComponent, 
+		LeagueComponent,
+		OracleComponent,
 		SquadBuilderComponent
 	],
 	imports: [
