@@ -20,13 +20,21 @@ export class FinanceComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.footballDataService.leagues().pipe(
-			switchMap((leagues) => {
+		let sub;
+		if(this.blockchainService.isInitialized) {
+			sub = this.footballDataService.leagues();
+		} else {
+			sub = this.blockchainService.init.pipe(
+				switchMap(() => this.footballDataService.leagues())
+			)
+		}
+		sub.pipe(
+			switchMap((leagues: any) => {
 				let requests = [];
 				leagues.map(league => { requests.push(this.blockchainService.getUserSquadIndexes(league.season_id, league.id)); });
 				return forkJoin(requests);
 			}),
-			switchMap((data) => {
+			switchMap((data: any) => {
 				let requests = [];
 				// for all leagues
 				for(let i = 0; i < data.length; i++) {

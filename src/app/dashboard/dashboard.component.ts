@@ -36,7 +36,13 @@ export class DashboardComponent implements OnInit {
 	 * Checks whether current account is oracle
 	 */
 	checkOracle() {
-		this.blockchainService.isOracle().subscribe(
+		let sub;
+		if(this.blockchainService.isInitialized) {
+			sub = this.blockchainService.isOracle();
+		} else {
+			sub = this.blockchainService.init.pipe(switchMap(() => this.blockchainService.isOracle()));
+		}
+		sub.subscribe(
 			isOracle => {
 				this.isOracle = isOracle;
 			}

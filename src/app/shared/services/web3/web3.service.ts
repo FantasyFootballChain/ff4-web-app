@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, from, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import Web3 from 'web3';
 
 const web3 = new Web3(Web3.givenProvider);
@@ -51,6 +52,23 @@ export class Web3Service {
 	getContract(abi, address): any {
 		return new web3.eth.Contract(abi, address);
 	}
+
+	/**
+	 * Returns current network name
+	 */
+	getNetworkName(): Observable<string> {
+		return from(web3.eth.net.getId()).pipe(
+			switchMap(networkId => {
+				let networkName = "development";
+				if(networkId == 1) networkName = "main";
+				if(networkId == 3) networkName = "ropsten";
+				if(networkId == 4) networkName = "rinkeby";
+				if(networkId == 42) networkName = "kovan";
+				return of(networkName);
+			})
+		);
+	}
+
 
 	/**
 	 * Converts value from wei to ether

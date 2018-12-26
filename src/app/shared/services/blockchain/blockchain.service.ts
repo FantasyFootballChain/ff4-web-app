@@ -31,12 +31,18 @@ export class BlockchainService {
 	 * Initializes contracts
 	 */
 	initContracts() {
-		forkJoin(
-			this.http.get('assets/contracts/FantasyFootballChain.json')
+		let networkName = null;
+		this.web3Service.getNetworkName().pipe(
+			switchMap((name) => {
+				networkName = name;
+				return forkJoin(
+					this.http.get('assets/contracts/FantasyFootballChain.json')
+				);
+			})
 		).subscribe(
 			data => {
 				this.contractAbis = data;
-				const contractAddress = env.production ? env.fantasyFoootballChainAddress.kovan : env.fantasyFoootballChainAddress.development;
+				const contractAddress = env.fantasyFoootballChainAddress[networkName];
 				this.fantasyFootballChainContract = this.web3Service.getContract(this.contractAbis[0].abi, contractAddress);
 				this.init.emit();
 				this.isInitialized = true;
